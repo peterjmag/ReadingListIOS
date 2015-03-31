@@ -9,6 +9,7 @@ var {
 
 var links = require('./staticData');
 var ReadingListRow = require('./ReadingListRow');
+var ViewLinkScreen = require('./ViewLinkScreen');
 
 var ReadingListScreen = React.createClass({
   getInitialState: function() {
@@ -19,10 +20,19 @@ var ReadingListScreen = React.createClass({
     };
   },
 
+  selectLink: function(link) {
+    this.props.navigator.push({
+      title: link.title,
+      component: ViewLinkScreen,
+      passProps: {link},
+    });
+  },
+
   renderRow: function(link) {
     return (
       <ReadingListRow
         key={link.id}
+        onSelect={() => this.selectLink(link)}
         link={link}
       />
     );

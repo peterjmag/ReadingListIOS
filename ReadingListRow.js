@@ -12,7 +12,7 @@ var {
 var ReadingListRow = React.createClass({
   render: function() {
     return (
-      <TouchableHighlight underlayColor={'rgba(0, 0, 0, 0.1)'}>
+      <TouchableHighlight underlayColor={'rgba(0, 0, 0, 0.1)'} onPress={this.props.onSelect}>
         <View style={styles.container}>
           <Image
             source={{uri: this.props.link.image}}
