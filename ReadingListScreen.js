@@ -7,17 +7,39 @@ var {
   View,
 } = React;
 
-var links = require('./staticData');
+var fetch = require('fetch');
 var ReadingListRow = require('./ReadingListRow');
 var ViewLinkScreen = require('./ViewLinkScreen');
 
 var ReadingListScreen = React.createClass({
   getInitialState: function() {
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.id !== r2.id});
-
     return {
-      links: ds.cloneWithRows(links)
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1.id !== r2.id,
+      }),
     };
+  },
+
+  componentDidMount: function() {
+    // For the moment, this requires the API server from
+    // https://github.com/peterjmag/reading-list to be running.
+    // You might also want to populate the web app with some data.
+    fetch('http://localhost:3001/links/')
+      .then((response) => response.json())
+      .catch((error) => {
+        this.setState({
+          dataSource: this.getDataSource([]),
+        });
+      })
+      .then((links) => {
+        this.setState({
+          dataSource: this.getDataSource(links),
+        });
+      });
+  },
+
+  getDataSource: function(links) {
+    return this.state.dataSource.cloneWithRows(links);
   },
 
   selectLink: function(link) {
@@ -42,7 +64,7 @@ var ReadingListScreen = React.createClass({
     return (
       <View style={styles.container}>
         <ListView
-          dataSource={this.state.links}
+          dataSource={this.state.dataSource}
           renderRow={this.renderRow}
         />
       </View>
