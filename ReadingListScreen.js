@@ -5,10 +5,10 @@ var {
   StyleSheet,
   ListView,
   View,
-  Text,
 } = React;
 
 var links = require('./staticData');
+var ReadingListRow = require('./ReadingListRow');
 
 var ReadingListScreen = React.createClass({
   getInitialState: function() {
@@ -32,9 +32,9 @@ var ReadingListScreen = React.createClass({
 
   renderRow: function(link) {
     return (
-      <View>
-        <Text>{link.title}</Text>
-      </View>
+      <ReadingListRow
+        key={link.id}
+        link={link} />
     );
   },
 });
