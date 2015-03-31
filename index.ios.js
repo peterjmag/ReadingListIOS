@@ -15,7 +15,7 @@ var ReadingListIOS = React.createClass({
       <NavigatorIOS
         style={styles.navigator}
         initialRoute={{
-          title: '',
+          title: 'Your Reading List',
           component: ReadingListScreen,
         }}
       />
