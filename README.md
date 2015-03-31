@@ -1,6 +1,6 @@
 # ReadingListIOS
 
-An example React Native app for a talk at React Berlin.
+An example React Native app for [a talk at React Berlin](http://www.meetup.com/React-Berlin/events/221080348/).
 
 See this Gist and the companion web app for more info:  
 [https://gist.github.com/peterjmag/2ef39ba5d25f3f1e0008](https://gist.github.com/peterjmag/2ef39ba5d25f3f1e0008 "Let&#39;s build a React Native app in 20 minutes - React Berlin #1")  
