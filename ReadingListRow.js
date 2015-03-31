@@ -12,16 +12,18 @@ var {
 var ReadingListRow = React.createClass({
   render: function() {
     return (
-      <View style={styles.container}>
-        <Image
-          source={{uri: this.props.link.image}}
-          style={styles.linkImage}
-        />
-        <View style={styles.textContainer}>
-          <Text style={styles.linkTitle} numberOfLines={2}>{this.props.link.title}</Text>
-          <Text style={styles.linkHost}>{this.props.link.host}</Text>
+      <TouchableHighlight underlayColor={'rgba(0, 0, 0, 0.1)'}>
+        <View style={styles.container}>
+          <Image
+            source={{uri: this.props.link.image}}
+            style={styles.linkImage}
+          />
+          <View style={styles.textContainer}>
+            <Text style={styles.linkTitle} numberOfLines={2}>{this.props.link.title}</Text>
+            <Text style={styles.linkHost}>{this.props.link.host}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableHighlight>
     );
   },
 });
