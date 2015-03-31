@@ -19,6 +19,15 @@ var ReadingListScreen = React.createClass({
     };
   },
 
+  renderRow: function(link) {
+    return (
+      <ReadingListRow
+        key={link.id}
+        link={link}
+      />
+    );
+  },
+
   render: function() {
     return (
       <View style={styles.container}>
@@ -27,14 +36,6 @@ var ReadingListScreen = React.createClass({
           renderRow={this.renderRow}
         />
       </View>
-    );
-  },
-
-  renderRow: function(link) {
-    return (
-      <ReadingListRow
-        key={link.id}
-        link={link} />
     );
   },
 });
