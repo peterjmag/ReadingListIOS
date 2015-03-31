@@ -36,6 +36,22 @@ var styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: 'rgba(0, 0, 0, 0.1)',
   },
+  linkImage: {
+    backgroundColor: '#dddddd',
+    width: 60,
+    height: 60,
+    marginRight: 10,
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: 'flex-start',
+  },
+  linkTitle: {
+    fontWeight: 'bold',
+  },
+  linkHost: {
+    color: '#999999',
+  },
 });
 
 module.exports = ReadingListRow;
